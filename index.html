@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="shortcut icon" href="./images/calculator.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="input">
+                <input type="text" readonly id="display" placeholder="0">
+            </div>
+            <div class="buttons">
+                <button onclick="nun()" style="color: rgb(249, 31, 31);">AC</button>
+                <button style="color: green;" onclick="del()">DEL</button>
+                <button onclick="displaynum('%')">%</button>
+                <button onclick="displaynum('/')">/</button>
+                <button onclick="displaynum('7')">7</button>
+                <button onclick="displaynum('8')">8</button>
+                <button onclick="displaynum('9')">9</button>
+                <button onclick="displaynum('*')">*</button>
+                <button onclick="displaynum('4')">4</button>
+                <button onclick="displaynum('5')">5</button>
+                <button onclick="displaynum('6')">6</button>
+                <button onclick="displaynum('-')">-</button>
+                <button onclick="displaynum('1')">1</button>
+                <button onclick="displaynum('2')">2</button>
+                <button onclick="displaynum('3')">3</button>
+                <button onclick="displaynum('+')">+</button>
+                <button onclick="displaynum('.')">.</button>
+                <button onclick="displaynum('0')">0</button>
+                <button class="equal" onclick="answer('=')">=</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        let display = document.getElementById("display")
+
+        function displaynum(num){
+            display.value += num;
+        }
+        function nun(){
+            display.value = "";
+        }
+        function del(){
+            display.value = display.value.slice(0,-1)
+        }
+        function answer(){
+            try {
+                display.value = eval(display.value);
+
+            } catch (error) {
+                alert("invalid")
+            }
+        }
+
+    </script>
+</body>
+</html>
